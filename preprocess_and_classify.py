@@ -6,7 +6,7 @@ from nltk.tokenize import word_tokenize
 import cohere
 from dotenv import load_dotenv
 from cohere.classify import Example
-
+from spellchecker import SpellChecker
 
 # Load environment variables
 load_dotenv()
@@ -22,9 +22,8 @@ nltk.download('stopwords')
 preprocess_and_classify_router = APIRouter()
 
 # Download required resources
-nltk.download('punkt')
-nltk.download('stopwords')
-
+nltk.download('punkt') # for tokenization
+nltk.download('stopwords') # for removing stopwords
 
 # Define the examples (text and label pairs)
 examples = [
@@ -42,8 +41,12 @@ async def preprocess(text: str):
     stop_words = set(stopwords.words('english'))
     filtered_tokens = [w for w in tokens if not w in stop_words]
 
+    # for spell correction (spellchecker library)
+    spell = SpellChecker(language='en')
+    corrected_tokens = [spell.correction(w) for w in filtered_tokens]
+
     # Return the preprocessed text as a single string
-    preprocessed_text = " ".join(filtered_tokens)
+    preprocessed_text = " ".join(corrected_tokens)
     return preprocessed_text
 
 @preprocess_and_classify_router.post("/preprocess_and_classify")
@@ -67,4 +70,3 @@ async def preprocess_and_classify(input_text: str = Query(..., description="The 
         "predicted_label": predicted_label,
         "confidence_score": confidence_score,
     }
-
