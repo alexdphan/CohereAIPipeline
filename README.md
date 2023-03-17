@@ -19,25 +19,9 @@ on twitter :)
 
 ---
 
-**POST/preprocess_and_classify**
-
-Used to create cleaner and clearer sentences/words to use before classification.
-
-1. Spell Checking
-2. Removes Stopwords
-3. Tokenizes Words
-
-Input: chiken looks cool and is tasty
-
-Server Response:
-
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
+- preprocess
+- classify
+- validation
 
 **More Soon!**
 
