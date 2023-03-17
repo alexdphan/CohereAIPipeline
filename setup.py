@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="cohere-ai-pipeline",
+    name="cohereflow",
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
@@ -10,6 +10,18 @@ setup(
         "cohere",
         "autocorrect",
         "pydantic",
+        "uvicorn",
+        "spacy",
+        "pandas",
+        "numpy",
+        "scikit-learn",
+        "scipy",
+        "python-dotenv",
+        "python-multipart",
+        "requests",
+        "tqdm",
+        "pydantic",
+        "pytest"
         # ... any other required libraries
     ],
     classifiers=[

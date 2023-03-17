@@ -1,5 +1,7 @@
 # CohereFlow
 
+## CohereFlow: A versatile and user-friendly Python package for seamless integration with the Cohere API, offering text preprocessing, classification, and custom guardrail-like features to enhance and secure your natural language processing workflows.
+
 - Simplifying the process of making API requests by abstracting away some of the implementation details and adding additional functionality
 
 - Providing a more convenient and intuitive interface for developers to interact with
@@ -52,3 +54,4 @@ Possible to-do:
 
 - [ ] Testing: Thoroughly test your updated API to ensure that it works as expected, handles various edge cases, and properly applies the Guardrail-like features. Provide examples in examples folder.
 
+*Credits to [Guardrails](https://github.com/ShreyaR/guardrails) for inspiration!*

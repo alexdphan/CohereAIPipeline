@@ -9,3 +9,7 @@
 venv/
 env/
 .env
+
+# Ignore .vscode folder
+.vscode/
+
