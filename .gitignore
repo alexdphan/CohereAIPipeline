@@ -13,3 +13,5 @@ env/
 # Ignore .vscode folder
 .vscode/
 
+# Ignore egg-info folder
+cohereflow.egg-info/

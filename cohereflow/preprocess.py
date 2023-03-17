@@ -16,3 +16,4 @@ def remove_stopwords(text: str) -> str:
     stop_words = set(stopwords.words('english'))
     word_tokens = word_tokenize(text)
     return ' '.join([word for word in word_tokens if word.lower() not in stop_words])
+
