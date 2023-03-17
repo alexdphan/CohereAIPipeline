@@ -1,7 +1,6 @@
 # CohereFlow
 
-***A versatile and user-friendly Python package for seamless integration with the Cohere API, offering text preprocessing, classification, and custom guardrail-like features to enhance and secure your natural language processing workflows.
-***
+***A versatile and user-friendly Python package for seamless integration with the Cohere API, offering text preprocessing, classification, and custom guardrail-like features to enhance and secure your natural language processing workflows.***
 
 - Simplifying the process of making API requests by abstracting away some of the implementation details and adding additional functionality
 
