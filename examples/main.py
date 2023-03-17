@@ -1,8 +1,8 @@
 from fastapi import FastAPI
+import uvicorn
 from classify import classify_router
 from preprocess import preprocess_router
 from preprocess_and_classify import preprocess_and_classify_router
-import uvicorn
 
 app = FastAPI()
 

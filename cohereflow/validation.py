@@ -14,7 +14,3 @@ def contains_requred_keywords(text: str, required_keywords: list[str]) -> bool:
       """Check if the text contains all the required keywords"""
       return all(keyword in text for keyword in required_keywords)
 
-def contains_required_keywords(text: str, required_keywords: list[str]) -> bool:
-      """Check if the text contains all the required keywords"""
-      return all(keyword in text for keyword in required_keywords)
-

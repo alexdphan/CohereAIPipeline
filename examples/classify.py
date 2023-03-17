@@ -1,3 +1,4 @@
+# Just a simple example of how to use the Cohere api to classify text, not necessary for the project
 import os
 from fastapi import FastAPI, Query, APIRouter
 import cohere
