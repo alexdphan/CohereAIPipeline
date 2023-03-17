@@ -22,7 +22,6 @@ setup(
         "tqdm",
         "pydantic",
         "pytest",
-        "indexer",
         # ... any other required libraries
     ],
     classifiers=[
