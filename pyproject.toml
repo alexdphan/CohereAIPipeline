@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cohereapiwrapper"
+name = "cohereflow"
 version = "0.1.0"
 description = ""
 authors = ["alexdphan <alexphan0515@gmail.com>"]
