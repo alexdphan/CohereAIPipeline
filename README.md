@@ -1,4 +1,4 @@
-# CohereAPIPipeline
+# CohereFlow
 
 - Simplifying the process of making API requests by abstracting away some of the implementation details and adding additional functionality
 
@@ -50,5 +50,5 @@ Possible to-do:
 
 - [ ] Error handling and logging: Implement error handling to manage any issues that might arise during runtime, such as failed API calls or invalid input data. Set up logging to keep track of successful and failed requests, validation errors, and any other relevant information.
 
-- [ ] Testing: Thoroughly test your updated API to ensure that it works as expected, handles various edge cases, and properly applies the Guardrail-like features.
+- [ ] Testing: Thoroughly test your updated API to ensure that it works as expected, handles various edge cases, and properly applies the Guardrail-like features. Provide examples in examples folder.
 

@@ -7,6 +7,7 @@ import cohere
 from dotenv import load_dotenv
 from cohere.classify import Example
 from spellchecker import SpellChecker
+from cohereai_pipeline.validation import GeneratedText, is_valid_length, contains_required_keywords
 
 # Load environment variables
 load_dotenv()
