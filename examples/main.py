@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
-from classify import classify_router
-from preprocess import preprocess_router
-from preprocess_and_classify import preprocess_and_classify_router
+
+from cohereflow.preprocess import remove_special_characters, remove_stopwords
 
 app = FastAPI()
 
@@ -10,9 +9,8 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World!"}
 
-app.include_router(classify_router)
-app.include_router(preprocess_router)
-app.include_router(preprocess_and_classify_router)
+app.include_router(remove_special_characters)
+app.include_router(remove_stopwords)
 
 # Run the app
 if __name__ == "__main__":
