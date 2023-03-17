@@ -15,3 +15,6 @@ env/
 
 # Ignore egg-info folder
 cohereflow.egg-info/
+
+# Ignore dist folder
+dist/
