@@ -6,6 +6,8 @@ from nltk.tokenize import word_tokenize
 from cohere.classify import Example
 from cohere.client import Client
 from spellchecker import SpellChecker
+from spellchecker.indexer import DictionaryIndex
+
 
 nltk.download('punkt')
 nltk.download('stopwords')

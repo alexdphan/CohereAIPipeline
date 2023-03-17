@@ -3,6 +3,12 @@ import cohere
 from cohere.classify import Example
 from typing import List
 
+# import environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
+# error because of missing API key, see below
+
 # Load your Cohere API key from environment variable
 COHERE_API_KEY = os.getenv("YOUR_API_KEY")
 co = cohere.Client(COHERE_API_KEY)

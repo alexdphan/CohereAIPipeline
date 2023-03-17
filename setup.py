@@ -21,7 +21,8 @@ setup(
         "requests",
         "tqdm",
         "pydantic",
-        "pytest"
+        "pytest",
+        "indexer",
         # ... any other required libraries
     ],
     classifiers=[
