@@ -1,0 +1,10 @@
+# Ignore .pyc and .pyo files
+*.pyc
+*.pyo
+
+# Ignore .DS_Store files (MacOS specific)
+.DS_Store
+
+# Ignore virtual environments
+venv/
+env/
