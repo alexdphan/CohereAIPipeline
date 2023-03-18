@@ -23,3 +23,5 @@ class TestGenerateText(unittest.TestCase):
         
 if __name__ == '__main__':
     unittest.main()
+
+# Test for cohereflow/generator.py

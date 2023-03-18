@@ -13,3 +13,7 @@ def validate_text(text: str, min_length: int, max_length: int, required_keywords
       """Check if the text is between the minimum and maximum length, and if the text contains all the required keywords"""
       return is_valid_length(text, min_length, max_length) and contains_required_keywords(text, required_keywords)
 
+# is_valid_length() is a function that checks if the text is between the minimum and maximum length
+# contains_required_keywords() is a function that checks if the text contains all the required keywords
+# validate_text() is a function that checks if the text is between the minimum and maximum length, and if the text contains all the required keywords
+

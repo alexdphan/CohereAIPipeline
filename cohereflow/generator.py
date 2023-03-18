@@ -40,3 +40,7 @@ def generate_text(prompt=None, model=None, max_tokens=None, min_length=None, max
         text = "Fallback response"
     
     return text
+
+# generate_text() is a wrapper function prompts the user for input if arguments are not provided
+# It also that calls the Cohere API and validates the generated text by calling validate_text()
+# validate_text() is a wrapper function that calls the Cohere API and validates the generated text by calling validate_text()

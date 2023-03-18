@@ -17,3 +17,5 @@ def remove_stopwords(text: str) -> str:
     word_tokens = word_tokenize(text)
     return ' '.join([word for word in word_tokens if word.lower() not in stop_words])
 
+# remove_special_characters() is a function that removes special characters from the input text.
+# remove_stopwords() is a function that removes common stopwords from the input text.
