@@ -1,5 +1,5 @@
 from cohere.classify import Example
-from cohereflow.validation import contains_requred_keywords, is_valid_length
+from cohereflow.validation import contains_required_keywords, is_valid_length
 
 from cohereflow.preprocess import remove_special_characters, remove_stopwords
 
@@ -19,4 +19,4 @@ def test_preprocessing_functions():
 
     # Check if the preprocessed text is valid
     assert is_valid_length(preprocessed_text, 5, 50) == True
-    assert contains_requred_keywords(preprocessed_text, ["sample", "text"]) == True
+    assert contains_required_keywords(preprocessed_text, ["sample", "text"]) == True
