@@ -1,6 +1,6 @@
-# CohereFlow
+# CohereGuard
 
-***A versatile and user-friendly Python package for seamless integration with the Cohere API, offering text preprocessing, classification, and custom guardrail-like features to enhance and secure your natural language processing workflows.***
+***A versatile and user-friendly Python API Wrapper Package for seamless integration with the Cohere API, offering text preprocessing, classification, and custom guardrail-like features to enhance and secure your natural language processing workflows.***
 
 - Simplifying the process of making API requests by abstracting away some of the implementation details and adding additional functionality
 
@@ -18,19 +18,27 @@ on twitter :)
 
 ---
 
-- preprocess
-- classify
-- validation
+**All endpoints integrated with [Guardrails](https://github.com/ShreyaR/guardrails)**
+
+/generate
+
+/embed
+
+/classify
+
+/tokenize
+
+/detokenize
+
+/detect-language
+
+/summarize
 
 **More Soon!**
 
 Possible to-do:
 
-- [X] Define data classes and validation functions: Create Pydantic data classes to represent the structure of the generated text and any additional metadata you want to validate. Write validation functions to check for content constraints, such as minimum and maximum lengths, presence or absence of specific keywords, or other custom requirements.
-
-- [X] Update the combined endpoint: In the endpoint that combines preprocessing and classification, add the validation logic after the classification step. When you receive the generated text from the Cohere API, validate it using the validation functions you've created.
-
-- [X] Implement corrective actions: If the generated text fails validation, implement corrective actions such as re-prompting the model with a modified prompt, adjusting temperature or max tokens, or using a fallback response. You can also retry the process a limited number of times to avoid infinite loops or excessive API calls.
+- [ ] Create Endpoints
 
 - [ ] Create additional endpoints (optional): Depending on your use case, you may want to create additional FastAPI endpoints for specific validation tasks, such as validating generated content based on classification results or using a different set of rules.
 
