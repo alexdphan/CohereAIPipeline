@@ -2,10 +2,11 @@
 import os
 from fastapi import FastAPI, Query, APIRouter
 import cohere
-from cohere.classify import Example
 from typing import List
 import os
 from dotenv import load_dotenv
+# import Example from cohere
+from cohere.classify import Example
 
 # Load the environment variables from the .env file
 load_dotenv()
