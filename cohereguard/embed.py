@@ -1,56 +1,88 @@
+# import os
+from enum import Enum
 from fastapi import FastAPI, APIRouter
-from pydantic import BaseModel
-import cohere
-import os
 import numpy as np
 
 # load environment variables
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+from pydantic import BaseModel
+from cohereguard.config import co
 
-# Load your Cohere API key
-COHERE_API_KEY = os.getenv("YOUR_API_KEY")
-co = cohere.Client(COHERE_API_KEY)
-
-app = FastAPI()
 embed_router = APIRouter()
 
 class EmbedInput(BaseModel):
+    """
+    A Pydantic model representing input data for embedding.
+
+    Attributes:
+        text (str): The input text to be embedded.
+    """
+
     text: str
 
+class TruncateOptions(str, Enum):
+    NONE = "NONE"
+    START = "START"
+    END = "END"
+
+
 class EmbedConfig(BaseModel):
+    """
+    A Pydantic model representing configuration options for embedding.
+
+    Attributes:
+        model (str): The name of the embedding model to use (either "small" or "large").
+        truncate (int): The maximum number of tokens to use for the embedding.
+    """
+
     model: str = "large"
-    truncate: int = None
+    truncate: TruncateOptions = TruncateOptions.END
 
 @embed_router.post("/embed")
 async def get_embedding(input_data: EmbedInput, config: EmbedConfig = EmbedConfig()):
+    """
+    Generates an embedding for the input text using the Cohere API.
+
+    Args:
+        input_data (EmbedInput): A Pydantic model representing the input text to embed.
+        config (EmbedConfig): A Pydantic model representing the configuration options for embedding.
+
+    Returns:
+        A dictionary with the embedding as a list of floats.
+    """
     model = config.model
     truncate = config.truncate
+    
     response = co.embed(model=model, texts=[input_data.text], truncate=truncate)
+    
     embeddings_array = np.array(response.embeddings)
     return {"embedding": embeddings_array[0].tolist()}
 
-app.include_router(embed_router)
+## Example Use Case of Embedding Endpoint
 
-# ===============
+# Import the necessary classes and functions from your package
+# from cohereguard.embed import EmbedInput, EmbedConfig, get_embedding
 
-# to customize the response, you can use the get_embedding function from cohereguard/embed.py to get the embedding for a single text input.
-# The function takes a text input, a model name, and a truncate value as arguments.
-# The model name can be either "small" or "large". The truncate value is the maximum number of tokens to use for the embedding.
-# The function returns a dictionary with the embedding as a list of floats.
+# Initialize Cohere API client with your API key
+# co = cohere.Client("YOUR_API_KEY")
 
-# ===============
-# from my_package.cohere_embed import get_embedding, EmbedInput, EmbedConfig
-
+# Define the input text to be embedded
 # text = "I love this movie!"
-# model = "large"
-# truncate = 512
 
-# # Using default values
+# Call the get_embedding function with default configuration
 # embedding = get_embedding(EmbedInput(text=text))
+
+# Print the embedding
 # print(embedding)
 
-# # Using custom values
+# Call the get_embedding function with custom configuration
+# model = "small"
+# truncate = 128
 # embedding = get_embedding(EmbedInput(text=text), EmbedConfig(model=model, truncate=truncate))
+
+# Print the embedding
 # print(embedding)
+
+
+
 

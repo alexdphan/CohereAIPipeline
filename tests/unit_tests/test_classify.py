@@ -2,15 +2,20 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 import pytest
 
-from cohereguard.classify import classify_router  # Replace with the actual path to your classify_router
+from cohereguard.classify import (
+    classify_router,
+)  # Replace with the actual path to your classify_router
 
 app = FastAPI()
 app.include_router(classify_router)
 
 client = TestClient(app)
 
+
 def test_classify():
-    response = client.post("/classify", params={"input_text": "The movie was great!"})
+    response = client.post(
+        "/classify", params={"input_text": "The movie was great!"}
+    )
     assert response.status_code == 200
     assert response.json() == {
         "input_text": "The movie was great!",
@@ -18,6 +23,7 @@ def test_classify():
         "confidence_score": [pytest.approx(0.99, abs=0.1)],
         # classifying a single example returns a list of confidence scores
     }
+
 
 def test_classify_positive():
     response = client.post("/classify", params={"input_text": "I love this movie!"})
@@ -28,6 +34,7 @@ def test_classify_positive():
         "confidence_score": [pytest.approx(0.9737713, abs=0.1)],
     }
 
+
 def test_classify_negative():
     response = client.post("/classify", params={"input_text": "I hate this movie!"})
     assert response.status_code == 200
@@ -36,6 +43,7 @@ def test_classify_negative():
         "predicted_label": "Negative",
         "confidence_score": [pytest.approx(0.8905472, abs=0.1)],
     }
+
 
 def test_classify_neutral():
     response = client.post("/classify", params={"input_text": "This movie is okay."})

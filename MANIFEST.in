@@ -3,4 +3,4 @@ include LICENSE
 prune */__pycache__
 global-exclude *.pyc
 global-exclude *.DS_Store
-recursive-include cohereflow/ *.xml
+recursive-include cohereguard/ *.xml

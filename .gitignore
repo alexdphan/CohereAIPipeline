@@ -14,7 +14,7 @@ env/
 .vscode/
 
 # Ignore egg-info folder
-cohereflow.egg-info/
+cohereguard.egg-info/
 
 # Ignore dist folder
 dist/

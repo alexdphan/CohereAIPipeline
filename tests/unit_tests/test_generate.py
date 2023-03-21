@@ -2,14 +2,18 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 import pytest
 
-from cohereguard.generate import generate_router  # Replace with the actual path to your generate_router
+from cohereguard.generate import (
+    generate_router,
+)  # Replace with the actual path to your generate_router
 
 app = FastAPI()
 app.include_router(generate_router)
 
+
 @pytest.fixture(scope="module")
 def test_client():
     return TestClient(app)
+
 
 def test_generate(test_client):
     model = "xlarge"
@@ -23,7 +27,7 @@ def test_generate(test_client):
             "model": model,
             "prompt": prompt,
             "max_tokens": max_tokens,
-            "temperature": temperature
+            "temperature": temperature,
         },
     )
 

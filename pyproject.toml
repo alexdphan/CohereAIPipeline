@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cohereflow"
+name = "cohereguard"
 version = "0.1.0"
 description = ""
 authors = ["alexdphan <alexphan0515@gmail.com>"]
@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.94.0"
-cohere = "^3.10.0"
+cohere = "^4.0.4"
 uvicorn = "^0.21.0"
 nltk = "^3.8.1"
 requests = "^2.28.2"
@@ -21,3 +21,7 @@ pytest = "^7.2.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 85
+exclude = ["venv"]
