@@ -1,6 +1,8 @@
 rail_spec = """
 <rail version="0.1">
 
+
+
 <output>
     <pythoncode
         name="python_code"
