@@ -22,6 +22,7 @@ setup(
         "tqdm",
         "pydantic",
         "pytest",
+        "guardrails-ai",
         # ... any other required libraries
     ],
     classifiers=[
