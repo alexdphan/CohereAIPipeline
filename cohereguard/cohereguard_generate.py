@@ -13,18 +13,40 @@ COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 # Create a Cohere client
 co = cohere.Client(COHERE_API_KEY)
 
-# import and set the RAIL spec from cohereguard_rail.py
+# import and set the RAIL spec from cohereguard_rail.py 
 guard = gd.Guard.from_rail_string(rail_spec)
 
-# Compiles the RAIL output specification and adds it to the provided prompt.
-print(guard.base_prompt)
-
 def generate_text(model, prompt, max_tokens):
-    # Call Cohere's generate endpoint with desired settings
-    response = co.generate(model=model, prompt=prompt, max_tokens=max_tokens)
-    text = response.generations[0].text
-    
+# Wrap the generate call with guard
+    raw_llm_output, validated_output = guard(co.generate, model=model, prompt=prompt, max_tokens=max_tokens)
+
+# Get the text from the response
+    text = validated_output.generations[0].text
+
     return text
+
+# 1. format the output in guardrails spec <output>
+#     <pythoncode
+#         name="python_code"
+#         format="cohere-python-generate"
+#         on-fail-cohere-python-generate="reask"
+#     />
+    # might need to remove this since it's just the prompt... 
+    # API Key: {{api_key}}
+    # Model: {{model}}
+    # Prompt: {{prompt}}
+    # Max Tokens: {{max_tokens}}  
+# </output>
+# 2. Wrap the function with guardrails
+
+
+
+
+# 2. validate the output with guardrails
+# 3. if validation fails, reask the user for input
+# 4. if validation passes, return the output
+# 5. if the user wants to quit, return None
+
 
 
 
